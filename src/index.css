@@ -667,3 +667,85 @@ img {
   transform: translateY(-4px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
+
+/* ====== Mobile Specific Responsive Adjustments ====== */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  h2[style] {
+    font-size: 2rem !important;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+  }
+
+  /* Prevent about badge from overflowing screen */
+  .about-badge {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: calc(100% - 24px);
+    margin: -30px auto 0;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .about-image-bg {
+    display: none;
+  }
+
+  /* Grids should become single column on mobile */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-item {
+    height: 300px;
+  }
+
+  /* Make buttons stack properly */
+  .hero-content div[style*="flex"] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-white {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .portfolio-title {
+    font-size: 1.25rem;
+  }
+
+  h2[style] {
+    font-size: 1.7rem !important;
+  }
+}
