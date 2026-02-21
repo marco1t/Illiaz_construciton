@@ -4,6 +4,13 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
     return (
         <header id="accueil" className="hero">
+            <img
+                src="./images/image_fond_accueil.png"
+                alt="Construction Background"
+                className="hero-bg"
+            />
+            <div className="hero-overlay"></div>
+
             <div className="container hero-content">
                 <h1 className="hero-title">
                     Votre Maçon de <span className="text-primary">Confiance</span>

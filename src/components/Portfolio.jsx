@@ -32,7 +32,7 @@ const Portfolio = () => {
                     {realisations.map((projet) => (
                         <div key={projet.id} className="portfolio-item">
                             <img
-                                src={`/images/realisation-${projet.id}.png`}
+                                src={`./images/realisation-${projet.id}.png`}
                                 alt={`Réalisation ${projet.title}`}
                                 loading="lazy"
                             />
