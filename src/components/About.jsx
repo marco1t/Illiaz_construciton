@@ -8,7 +8,7 @@ const About = () => {
                 <div className="about-image-wrapper">
                     <div className="about-image-bg"></div>
                     <img
-                        src="./images/realisation-12.png"
+                        src={`${import.meta.env.BASE_URL}images/realisation-12.png`}
                         alt="Chantier en cours"
                         className="about-image"
                     />

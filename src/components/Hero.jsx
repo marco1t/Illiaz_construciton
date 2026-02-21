@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <header id="accueil" className="hero">
             <img
-                src="./images/image_fond_accueil.png"
+                src={`${import.meta.env.BASE_URL}images/image_fond_accueil.png`}
                 alt="Construction Background"
                 className="hero-bg"
             />
