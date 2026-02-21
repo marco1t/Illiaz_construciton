@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://roulembaitiche.github.io/Illiaz_construciton",
+  "homepage": "https://marco1t.github.io/Illiaz_construciton",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
