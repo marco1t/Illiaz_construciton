@@ -1,85 +1,74 @@
 import React from 'react';
-import { Home, Wrench, Plus, Hammer, Ruler, CircleDot } from 'lucide-react';
+import { useInView } from '../hooks/useInView';
+import { HardHat, Hammer, Ruler, Axe, BrickWall, Wrench } from 'lucide-react';
 
 const Services = () => {
-    return (
-        <section id="prestations" className="section-padding" style={{ backgroundColor: 'white' }}>
-            <div className="container">
-                <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', marginBottom: '60px' }}>
-                    <div className="subtitle">Nos Services</div>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>
-                        Une expertise complète en maçonnerie
-                    </h2>
-                    <p style={{ fontSize: '1.1rem', color: 'var(--text-light)' }}>
-                        De la fondation aux finitions, nous maîtrisons toutes les techniques
-                        pour concrétiser vos projets.
-                    </p>
-                </div>
+  const [ref, isInView] = useInView({ threshold: 0.1 });
 
-                <div className="features-grid">
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <Home size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Construction Neuve</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Réalisation de maisons individuelles, fondations, vide-sanitaires et élévation de murs en parpaings ou briques.
-                        </p>
-                    </div>
+  const services = [
+    {
+      title: "Construction Neuve",
+      icon: <BrickWall size={48} strokeWidth={1.5} />,
+      desc: "Réalisation de maisons individuelles, fondations, vide-sanitaires et élévation de murs en parpaings ou briques."
+    },
+    {
+      title: "Rénovation & Restauration",
+      icon: <Wrench size={48} strokeWidth={1.5} />,
+      desc: "Réhabilitation de l'ancien, ouverture de murs porteurs, reprises de maçonnerie et rejointoiement."
+    },
+    {
+      title: "Extension & Surélévation",
+      icon: <Ruler size={48} strokeWidth={1.5} />,
+      desc: "Création de nouveaux espaces de vie, garages, annexes, en s'harmonisant parfaitement avec l'existant."
+    },
+    {
+      title: "Pierre Naturelle",
+      icon: <Axe size={48} strokeWidth={1.5} />,
+      desc: "Travail de la pierre ancienne, montage de murs en pierre, restauration du patrimoine architectural local."
+    },
+    {
+      title: "Aménagements Extérieurs",
+      icon: <HardHat size={48} strokeWidth={1.5} />,
+      desc: "Murets de clôture, terrasses béton, seuils, appuis de fenêtre et ouvrages en béton armé."
+    },
+    {
+      title: "Petits Travaux",
+      icon: <Hammer size={48} strokeWidth={1.5} />,
+      desc: "Réparations diverses, création de cloisons, coffrages et tout besoin spécifique en maçonnerie traditionnelle."
+    }
+  ];
 
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <Wrench size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Rénovation Complète</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Réhabilitation de l'ancien, ouverture de murs porteurs, reprises de maçonnerie et rejointoiement de pierres.
-                        </p>
-                    </div>
+  return (
+    <section id="prestations" className="section services-section" ref={ref}>
+      <div className="container">
+        <div className={`services-header fade-in ${isInView ? 'visible' : ''}`}>
+          <div>
+            <div className="section-label">Expertise</div>
+            <h2 className="heading-lg">Nos Domaines<br/>d'Intervention</h2>
+          </div>
+          <p className="text-lg">
+            De la fondation aux finitions, nous maîtrisons toutes les techniques pour concrétiser vos projets avec rigueur et précision.
+          </p>
+        </div>
 
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <Plus size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Extension & Agrandissement</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Création de nouveaux espaces de vie, garages, annexes, en s'harmonisant avec l'existant.
-                        </p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <Hammer size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Maçonnerie de Pierre</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Travail de la pierre ancienne, montage de murs en pierre, restauration du patrimoine local.
-                        </p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <Ruler size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Aménagements Extérieurs</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Murets de clôture, terrasses béton, seuils, appuis de fenêtre et béton armé divers.
-                        </p>
-                    </div>
-
-                    <div className="feature-card">
-                        <div className="feature-icon-wrapper">
-                            <CircleDot size={32} />
-                        </div>
-                        <h4 style={{ fontSize: '1.3rem', marginBottom: '16px' }}>Petits Travaux</h4>
-                        <p style={{ color: 'var(--text-light)' }}>
-                            Réparations diverses, création de cloisons, coffrages et tout besoin spécifique en maçonnerie traditionnelle.
-                        </p>
-                    </div>
-                </div>
+        <div className="services-grid">
+          {services.map((service, idx) => (
+            <div 
+              key={idx} 
+              className={`service-card fade-in ${isInView ? 'visible' : ''}`}
+              style={{ transitionDelay: `${0.1 * (idx + 1)}s` }}
+            >
+              <div className="service-icon">
+                {service.icon}
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.desc}</p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Services;

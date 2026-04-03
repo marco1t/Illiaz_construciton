@@ -1,78 +1,69 @@
 import React from 'react';
-import { Phone, MapPin, Mail, Camera, Facebook } from 'lucide-react';
+import { MapPin, Phone, Mail, HardHat } from 'lucide-react';
 
 const Footer = () => {
-    return (
-        <footer id="contact" className="footer">
-            <div className="container">
-                <div className="footer-grid">
+  return (
+    <footer id="contact" className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          
+          <div>
+            <a href="#accueil" className="nav-brand footer-brand">
+              <HardHat size={28} className="nav-brand-icon" />
+              ILIAZ
+            </a>
+            <p className="footer-text">
+              Excellence et durabilité en maçonnerie générale. Votre partenaire pour construire l'avenir en Ille-et-Vilaine.
+            </p>
+          </div>
 
-                    {/* Column 1 */}
-                    <div>
-                        <div className="footer-logo">ILIAZ<span>CONSTRUCTIONS</span></div>
-                        <p className="footer-text">
-                            Votre partenaire de confiance pour tous travaux de maçonnerie générale,
-                            neuf et rénovation. Qualité et durabilité garanties.
-                        </p>
-                        <div style={{ display: 'flex', gap: '16px' }}>
-                            <a href="#" style={{ color: 'rgba(255,255,255,0.7)', padding: '8px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%' }}>
-                                <Facebook size={20} />
-                            </a>
-                            <a href="#" style={{ color: 'rgba(255,255,255,0.7)', padding: '8px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '50%' }}>
-                                <Camera size={20} />
-                            </a>
-                        </div>
-                    </div>
+          <div>
+            <h4 className="footer-heading">Services</h4>
+            <ul className="footer-list">
+              <li><a href="#prestations">Construction Neuve</a></li>
+              <li><a href="#prestations">Rénovation</a></li>
+              <li><a href="#prestations">Extension</a></li>
+              <li><a href="#prestations">Pierre Naturelle</a></li>
+            </ul>
+          </div>
 
-                    {/* Column 2 */}
-                    <div>
-                        <h4 className="footer-heading">Coordonnées</h4>
-                        <ul className="footer-list">
-                            <li>
-                                <MapPin size={20} className="icon" />
-                                <span>Saint Germain en Coglès,<br />Ille-et-Vilaine, France</span>
-                            </li>
-                            <li>
-                                <Phone size={20} className="icon" />
-                                <a href="tel:0615153673" style={{ fontWeight: 600 }}>06 15 15 36 73</a>
-                            </li>
-                            <li>
-                                <Mail size={20} className="icon" />
-                                <a href="mailto:contact@iliaz-constructions.fr">contact@iliaz-constructions.fr</a>
-                            </li>
-                        </ul>
-                    </div>
+          <div>
+            <h4 className="footer-heading">Entreprise</h4>
+            <ul className="footer-list">
+              <li><a href="#presentation">À Propos</a></li>
+              <li><a href="#realisations">Portfolio</a></li>
+              <li><a href="#">Mentions Légales</a></li>
+              <li>SIRET : 923 281 216 00013</li>
+            </ul>
+          </div>
 
-                    {/* Column 3 */}
-                    <div>
-                        <h4 className="footer-heading">Informations</h4>
-                        <ul className="footer-list">
-                            <li>SIRET : 923 281 216 00013</li>
-                            <li>Zone d'intervention : 70km</li>
-                            <li><a href="#">Mentions Légales</a></li>
-                            <li><a href="#">Confidentialité</a></li>
-                        </ul>
-                    </div>
+          <div>
+            <h4 className="footer-heading">Contact</h4>
+            <ul className="footer-list">
+              <li>
+                <MapPin size={20} className="footer-icon" />
+                <span>Saint Germain en Coglès,<br/>35133, France</span>
+              </li>
+              <li>
+                <Phone size={20} className="footer-icon" />
+                <a href="tel:+33600000000" style={{ color: 'var(--text-primary)', fontWeight: 600 }}>06 00 00 00 00</a>
+              </li>
+              <li>
+                <Mail size={20} className="footer-icon" />
+                <a href="mailto:contact@iliaz-constructions.fr">contact@iliaz-constructions.fr</a>
+              </li>
+            </ul>
+          </div>
 
-                    {/* Column 4 */}
-                    <div>
-                        <h4 className="footer-heading">Contact Rapide</h4>
-                        <form onSubmit={e => e.preventDefault()}>
-                            <input type="text" placeholder="Votre nom" className="form-input" />
-                            <input type="email" placeholder="Votre email" className="form-input" />
-                            <textarea placeholder="Message" className="form-input" rows={3}></textarea>
-                            <button type="submit" className="submit-btn">Envoyer</button>
-                        </form>
-                    </div>
+        </div>
 
-                </div>
-
-                <div className="footer-bottom">
-                    © {new Date().getFullYear()} ILIAZ CONSTRUCTIONS. Tous droits réservés.
-                </div>
-            </div>
-        </footer>
-    );
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} ILIAZ CONSTRUCTIONS. Tous droits réservés.</p>
+          <p>Conception artisanale.</p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

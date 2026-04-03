@@ -1,52 +1,49 @@
 import React from 'react';
+import { useInView } from '../hooks/useInView';
 
 const Portfolio = () => {
-    // Liste des réalisations pour charger dynamiquement les images et les labels
-    const realisations = [
-        { id: 1, title: 'Maçonnerie Extérieure', tag: 'Construction', desc: 'Réalisation d\'aménagements extérieurs de qualité.' },
-        { id: 2, title: 'Fondations et Murs', tag: 'Gros Œuvre', desc: 'Élévation de murs robustes en parpaings.' },
-        { id: 3, title: 'Aménagement Pierre', tag: 'Rénovation', desc: 'Travaux de pierre apparente et finition.' },
-        { id: 4, title: 'Terrasse et Contours', tag: 'Extérieur', desc: 'Préparation et coulage de dalle béton.' },
-        { id: 5, title: 'Maison Individuelle', tag: 'Construction', desc: 'Projet complet de construction neuve.' },
-        { id: 6, title: 'Rénovation Façade', tag: 'Rénovation', desc: 'Restauration complète d\'une façade existante.' },
-        { id: 7, title: 'Extension', tag: 'Agrandissement', desc: 'Création d\'un espace de vie supplémentaire.' },
-        { id: 8, title: 'Chantier en cours', tag: 'Construction', desc: 'Évolution d\'un chantier de maison neuve.' },
-        { id: 9, title: 'Ouvrage d\'Art', tag: 'Spécial', desc: 'Travail minutieux sur un ouvrage complexe.' },
-        { id: 10, title: 'Murs de Clôture', tag: 'Aménagement', desc: 'Sécurisation et délimitation de la propriété.' },
-        { id: 11, title: 'Dallage', tag: 'Sol', desc: 'Préparation des sols et dallage de précision.' },
-        { id: 12, title: 'Finition Intérieure', tag: 'Rénovation', desc: 'Aménagement et consolidation des espaces intérieurs.' },
-        { id: 13, title: 'Projet Clé en Main', tag: 'Construction', desc: 'Remise des clés d\'une réalisation achevée.' },
-    ];
+  const [ref, isInView] = useInView({ threshold: 0.1 });
 
-    return (
-        <section id="realisations" className="section-padding">
-            <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '40px' }}>
-                    <div>
-                        <div className="subtitle">Portfolio</div>
-                        <h2 style={{ fontSize: '2.5rem' }}>Nos dernières réalisations</h2>
-                    </div>
-                </div>
+  const items = [
+    { id: 1, title: 'Aménagement Extérieur', tag: 'Construction' },
+    { id: 2, title: 'Fondations', tag: 'Gros Œuvre' },
+    { id: 3, title: 'Restauration Pierre', tag: 'Rénovation' },
+    { id: 5, title: 'Maison Individuelle', tag: 'Construction Neuve' },
+    { id: 6, title: 'Façade', tag: 'Rénovation' },
+    { id: 7, title: 'Extension', tag: 'Agrandissement' },
+    { id: 10, title: 'Clôture', tag: 'Aménagement' }
+  ];
 
-                <div className="portfolio-grid">
-                    {realisations.map((projet) => (
-                        <div key={projet.id} className="portfolio-item">
-                            <img
-                                src={`${import.meta.env.BASE_URL}images/realisation-${projet.id}.png`}
-                                alt={`Réalisation ${projet.title}`}
-                                loading="lazy"
-                            />
-                            <div className="portfolio-overlay">
-                                <div className="portfolio-tag">{projet.tag}</div>
-                                <h4 className="portfolio-title">{projet.title}</h4>
-                                <div className="portfolio-desc">{projet.desc}</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+  return (
+    <section id="realisations" className="section" ref={ref}>
+      <div className="container">
+        <div className={`fade-in ${isInView ? 'visible' : ''}`} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div className="section-label" style={{ justifyContent: 'center' }}>Portfolio</div>
+          <h2 className="heading-lg">Réalisations Récentes</h2>
+        </div>
+
+        <div className="portfolio-grid">
+          {items.map((item, idx) => (
+            <div 
+              key={item.id} 
+              className={`portfolio-item fade-in ${isInView ? 'visible' : ''}`}
+              style={{ transitionDelay: `${0.1 * (idx % 4)}s` }}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/realisation-${item.id}.png`}
+                alt={item.title}
+                loading="lazy"
+              />
+              <div className="portfolio-overlay">
+                <span className="portfolio-tag">{item.tag}</span>
+                <h4 className="portfolio-title">{item.title}</h4>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Portfolio;
